@@ -42,6 +42,10 @@ El sistema se desarrollará utilizando las siguientes tecnologías:
 ## Participantes![img_14.png](src/main/resources/static/images/img_14.png)
 
 El equipo se compone de profesionales con experiencia en Spring Framework, desarrollo web, bases de datos y diseño responsivo. Se valorará el cumplimiento de plazos, el enfoque en los requerimientos y la colaboración efectiva en equipo.
+- Bastian Góngora
+- Enrique Bahamondes
+- Yusnari Alzuru
+- Kevin Rojas
 
 ## Repositorio![img_16.png](src/main/resources/static/images/img_16.png)
 

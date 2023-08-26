@@ -86,7 +86,7 @@
                 </li>
                 </sec:authorize>
                 <li class="nav-item">
-                    <a class="nav-link" href="/logout">Logout</a>
+                    <a class="nav-link" href="/logout">Login/Logout</a>
                 </li>
             </ul>
 

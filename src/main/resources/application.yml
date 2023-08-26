@@ -5,8 +5,8 @@ spring:
       suffix: .jsp
   datasource:
     driverClassName: com.mysql.cj.jdbc.Driver
-    username: ${DB_USER}
-    password: ${DB_PASS}
+    username: admin
+    password: adminmodulo5
     url: jdbc:mysql://localhost:3306/aseelec?useSSL=false&serverTimezone=UTC&characterEncoding=UTF-8
   jpa:
     show-sql: true
@@ -18,4 +18,5 @@ spring:
   sql:
     init:
       data-locations:
+        - classpath:script.sql
       mode: always
