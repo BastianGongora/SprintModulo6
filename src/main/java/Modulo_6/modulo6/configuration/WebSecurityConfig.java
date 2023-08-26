@@ -8,10 +8,11 @@ import org.springframework.http.HttpMethod;
 import org.springframework.security.config.Customizer;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.configurers.AbstractHttpConfigurer;
 import org.springframework.security.crypto.password.NoOpPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
-import org.springframework.security.config.annotation.web.configurers.AbstractHttpConfigurer;
+
 import static org.springframework.security.web.util.matcher.AntPathRequestMatcher.antMatcher;
 
 @Configuration
@@ -35,6 +36,23 @@ public class WebSecurityConfig {
                     authorize.requestMatchers(antMatcher(HttpMethod.GET,"/eliminar-capacitacion")).hasRole("CLIENTE");
                     authorize.requestMatchers(antMatcher(HttpMethod.POST,"/eliminarCapacitacion")).hasRole("CLIENTE");
                     authorize.requestMatchers(antMatcher(HttpMethod.GET,"/crear-usuario")).hasRole("ADMINISTRATIVO");
+                    authorize.requestMatchers(antMatcher(HttpMethod.POST,"/crear-usuario")).hasRole("ADMINISTRATIVO");
+                    authorize.requestMatchers(antMatcher(HttpMethod.GET,"/datos-usuario")).hasRole("ADMINISTRATIVO");
+                    authorize.requestMatchers(antMatcher(HttpMethod.GET,"/listado-usuarios")).hasRole("ADMINISTRATIVO");
+                    authorize.requestMatchers(antMatcher(HttpMethod.GET,"editar-usuario")).hasRole("ADMINISTRATIVO");
+                    authorize.requestMatchers(antMatcher(HttpMethod.POST,"/editarUsuario")).hasRole("ADMINISTRATIVO");
+                    authorize.requestMatchers(antMatcher(HttpMethod.GET,"eliminar-usuario")).hasRole("ADMINISTRATIVO");
+                    authorize.requestMatchers(antMatcher(HttpMethod.POST,"/eliminar-usuario")).hasRole("ADMINISTRATIVO");
+                    authorize.requestMatchers(antMatcher(HttpMethod.POST,"/anadir-usuario")).hasRole("ADMINISTRATIVO");
+                    authorize.requestMatchers(antMatcher(HttpMethod.POST,"/crear-pago")).hasRole("ADMINISTRATIVO");
+                    authorize.requestMatchers(antMatcher(HttpMethod.GET,"/datos-pago")).hasRole("ADMINISTRATIVO");
+                    authorize.requestMatchers(antMatcher(HttpMethod.GET,"/listado-pagos")).hasRole("ADMINISTRATIVO");
+                    authorize.requestMatchers(antMatcher(HttpMethod.GET,"editar-pago")).hasRole("ADMINISTRATIVO");
+                    authorize.requestMatchers(antMatcher(HttpMethod.POST,"/editarPago")).hasRole("ADMINISTRATIVO");
+                    authorize.requestMatchers(antMatcher(HttpMethod.GET,"eliminar-pago")).hasRole("ADMINISTRATIVO");
+                    authorize.requestMatchers(antMatcher(HttpMethod.POST,"/eliminarPago")).hasRole("ADMINISTRATIVO");
+                    authorize.requestMatchers(antMatcher(HttpMethod.POST,"/anadir-pago")).hasRole("ADMINISTRATIVO");
+
 
                     authorize.anyRequest().permitAll();
                 })

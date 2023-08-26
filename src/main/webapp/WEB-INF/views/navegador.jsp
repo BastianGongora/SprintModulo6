@@ -1,4 +1,5 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <!doctype html>
 <html lang="es">
 
@@ -45,35 +46,45 @@
                 <li class="nav-item">
                     <a class="nav-link" href="/#team">Nuestro equipo</a>
                 </li>
+                <sec:authorize access="hasRole('CLIENTE')">
+
 
                 <li class="nav-item">
                     <a class="nav-link" href="/contacto">Contacto</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/crear-capacitacion">Crear capacitacion</a>
-                </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="/crear-capacitacion">Crear capacitacion</a>
+                    </li>
+
                 <li class="nav-item">
                     <a class="nav-link" href="/listado-capacitaciones">Listado de capacitaciones</a>
                 </li>
                 <li class="nav-item">
+                    </sec:authorize>
+                        <sec:authorize access="hasRole('ADMINISTRATIVO')">
                     <a class="nav-link" href="/crear-usuario">Crear Usuario</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="/listado-usuarios">Listado de Usuarios</a>
                 </li>
                 <li class="nav-item">
+
+
                     <a class="nav-link" href="/crear-pago">Crear Pago</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="/listado-pagos">Listado de Pagos</a>
                 </li>
                 <li class="nav-item">
+                    </sec:authorize>
+                        <sec:authorize access="hasRole('PROFESIONAL')">
                     <a class="nav-link" href="/crear-visita">Crear Visita</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="/listado-visitas">Listado de Visitas</a>
                 </li>
-
+                </sec:authorize>
                 <li class="nav-item">
                     <a class="nav-link" href="/logout">Logout</a>
                 </li>
@@ -82,3 +93,4 @@
         </div>
     </div>
 </nav><!-- //NAVBAR -->
+
