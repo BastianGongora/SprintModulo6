@@ -29,29 +29,46 @@ public class WebSecurityConfig {
                     authorize.requestMatchers(antMatcher("/")).permitAll();
                     authorize.requestMatchers(antMatcher(HttpMethod.GET,"/contacto")).hasRole("CLIENTE");
                     authorize.requestMatchers(antMatcher(HttpMethod.GET,"/crear-capacitacion")).hasRole("CLIENTE");
+                    authorize.requestMatchers(antMatcher(HttpMethod.POST,"/crear-capacitacion")).hasRole("CLIENTE");
                     authorize.requestMatchers(antMatcher(HttpMethod.GET,"/listado-capacitaciones")).hasRole("CLIENTE");
                     authorize.requestMatchers(antMatcher(HttpMethod.GET,"/datos-capacitacion")).hasRole("CLIENTE");
                     authorize.requestMatchers(antMatcher(HttpMethod.POST,"/anadir-capacitacion")).hasRole("CLIENTE");
                     authorize.requestMatchers(antMatcher(HttpMethod.POST,"/editarCapacitacion")).hasRole("CLIENTE");
                     authorize.requestMatchers(antMatcher(HttpMethod.GET,"/eliminar-capacitacion")).hasRole("CLIENTE");
                     authorize.requestMatchers(antMatcher(HttpMethod.POST,"/eliminarCapacitacion")).hasRole("CLIENTE");
+                    authorize.requestMatchers(antMatcher(HttpMethod.GET,"/editar-capacitacion")).hasRole("CLIENTE");
+
                     authorize.requestMatchers(antMatcher(HttpMethod.GET,"/crear-usuario")).hasRole("ADMINISTRATIVO");
                     authorize.requestMatchers(antMatcher(HttpMethod.POST,"/crear-usuario")).hasRole("ADMINISTRATIVO");
                     authorize.requestMatchers(antMatcher(HttpMethod.GET,"/datos-usuario")).hasRole("ADMINISTRATIVO");
                     authorize.requestMatchers(antMatcher(HttpMethod.GET,"/listado-usuarios")).hasRole("ADMINISTRATIVO");
-                    authorize.requestMatchers(antMatcher(HttpMethod.GET,"editar-usuario")).hasRole("ADMINISTRATIVO");
+                    authorize.requestMatchers(antMatcher(HttpMethod.GET,"/editar-usuario")).hasRole("ADMINISTRATIVO");
                     authorize.requestMatchers(antMatcher(HttpMethod.POST,"/editarUsuario")).hasRole("ADMINISTRATIVO");
-                    authorize.requestMatchers(antMatcher(HttpMethod.GET,"eliminar-usuario")).hasRole("ADMINISTRATIVO");
-                    authorize.requestMatchers(antMatcher(HttpMethod.POST,"/eliminar-usuario")).hasRole("ADMINISTRATIVO");
+                    authorize.requestMatchers(antMatcher(HttpMethod.GET,"/eliminar-usuario")).hasRole("ADMINISTRATIVO");
+                    authorize.requestMatchers(antMatcher(HttpMethod.POST,"/eliminarUsuario")).hasRole("ADMINISTRATIVO");
                     authorize.requestMatchers(antMatcher(HttpMethod.POST,"/anadir-usuario")).hasRole("ADMINISTRATIVO");
+
+                    authorize.requestMatchers(antMatcher(HttpMethod.GET,"/crear-pago")).hasRole("ADMINISTRATIVO");
                     authorize.requestMatchers(antMatcher(HttpMethod.POST,"/crear-pago")).hasRole("ADMINISTRATIVO");
                     authorize.requestMatchers(antMatcher(HttpMethod.GET,"/datos-pago")).hasRole("ADMINISTRATIVO");
                     authorize.requestMatchers(antMatcher(HttpMethod.GET,"/listado-pagos")).hasRole("ADMINISTRATIVO");
-                    authorize.requestMatchers(antMatcher(HttpMethod.GET,"editar-pago")).hasRole("ADMINISTRATIVO");
+                    authorize.requestMatchers(antMatcher(HttpMethod.GET,"/editar-pago")).hasRole("ADMINISTRATIVO");
                     authorize.requestMatchers(antMatcher(HttpMethod.POST,"/editarPago")).hasRole("ADMINISTRATIVO");
-                    authorize.requestMatchers(antMatcher(HttpMethod.GET,"eliminar-pago")).hasRole("ADMINISTRATIVO");
+                    authorize.requestMatchers(antMatcher(HttpMethod.GET,"/eliminar-pago")).hasRole("ADMINISTRATIVO");
                     authorize.requestMatchers(antMatcher(HttpMethod.POST,"/eliminarPago")).hasRole("ADMINISTRATIVO");
                     authorize.requestMatchers(antMatcher(HttpMethod.POST,"/anadir-pago")).hasRole("ADMINISTRATIVO");
+
+                    authorize.requestMatchers(antMatcher(HttpMethod.GET,"/crear-visita")).hasRole("PROFESIONAL");
+                    authorize.requestMatchers(antMatcher(HttpMethod.POST,"/crear-visita")).hasRole("PROFESIONAL");
+                    authorize.requestMatchers(antMatcher(HttpMethod.GET,"/datos-visita")).hasRole("PROFESIONAL");
+                    authorize.requestMatchers(antMatcher(HttpMethod.GET,"/listado-visitas")).hasRole("PROFESIONAL");
+                    authorize.requestMatchers(antMatcher(HttpMethod.GET,"/editar-visita")).hasRole("PROFESIONAL");
+                    authorize.requestMatchers(antMatcher(HttpMethod.POST,"/editarVisita")).hasRole("PROFESIONAL");
+                    authorize.requestMatchers(antMatcher(HttpMethod.GET,"/eliminar-visita")).hasRole("PROFESIONAL");
+                    authorize.requestMatchers(antMatcher(HttpMethod.POST,"/eliminarVisita")).hasRole("PROFESIONAL");
+                    authorize.requestMatchers(antMatcher(HttpMethod.POST,"/anadir-visita")).hasRole("PROFESIONAL");
+                    authorize.requestMatchers(antMatcher("/logout")).permitAll();
+                    authorize.requestMatchers(antMatcher("/login?logout")).permitAll();
 
 
                     authorize.anyRequest().permitAll();
